@@ -17,11 +17,10 @@ var stack7 = ['D', 'G', 'T', 'R', 'W', 'Z', 'S'];
 var stack8 = ['C', 'G', 'M', 'N', 'B', 'W', 'Z', 'P'];
 var stack9 = ['N', 'J', 'B', 'M', 'W', 'Q', 'F', 'P'];
 
-var instruction = [];
-
 const fs = require('fs');
 const operationSequence = fs.readFileSync('day5/day5input.txt', 'utf8');
 operationSequence.split("\n").forEach((line) => {
+    var instruction = [];
     line.split(" ").forEach((string) => {
         // Instructions are ex. move 3 from 6 to 2
         // Valuable information is stored in indices 1,3,5
@@ -35,8 +34,6 @@ operationSequence.split("\n").forEach((line) => {
         var popNum = eval('stack'+from).pop();
         eval('stack'+to).push(popNum);
     }
-    instruction = []; // Empty the instruction array
-    
 });
 // Find the crate thats on top of every stack and get the message for the elves
 var message = "";
